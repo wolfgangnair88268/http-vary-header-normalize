@@ -1,6 +1,6 @@
 {
   "name": "http-vary-header-normalize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parses and normalizes Vary header field lists for cache key computation, handling comma separation, whitespace, wildcard semantics, and duplicate field names.",
   "type": "module",
   "main": "src/index.js",
