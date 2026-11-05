@@ -30,3 +30,10 @@ The trade-off: this is a normalizer, not a validator. It drops field names that 
 ## Edge you will hit
 
 A `Vary` header of `*, Accept-Encoding` is treated as `*` alone. RFC 9110 says the wildcard means "varies on everything," so once it appears, the rest of the list carries no additional information. If your cache needs to *ignore* a wildcard and still key on the named fields, that is a different policy and this library does not implement it.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
